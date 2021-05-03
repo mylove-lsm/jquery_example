@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('#news').find("[name=xxx]").css('background', 'blue').css('text-align', 'center'); //find查找子孙节点
+            $('#news li').eq(0).css('background', 'orange').css('text-align', 'center');
+            alert($('#news li[class=box]').index());//输出该节点在兄弟节点的下标
+            // $('#news').find("[name=xxx]").attr('name', 'yyy');
+            $('#news').find("[name=xxx]").attr({
+                name: 'yyy',
+                class: 'l'
+            });
+            alert($("ul li[name='yyy']").attr('class'));
+        })
+    </script>
+</head>
+<body>
+    <ul id="news">
+        <li class="box"></li>
+        <li name="xxx"></li>
+        <li>
+            <ul>
+                <li></li>
+                <li name='xxx'></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
