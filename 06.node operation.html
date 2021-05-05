@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            // 前后两种写法效果相同，但可对不同节点进行链式操作
+
+            // 将span插入到div前面
+            $('span').insertBefore($('div')); // $('div').before($('span'));
+
+            // 将div插入到p后面
+            $('div').insertAfter($('p')); // $('p').after($('div'));
+
+            // 将span插入到div子节点的末尾, 类似appendchild
+            $('span').appendTo($('div')); // $('div').append($('span'));
+
+            // 将p插入到div子节点的首位
+            $('p').prependTo($('div')); // $('div').prepend($('p'));
+
+            // 删除em节点
+            $('em').remove();
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <em>em</em>
+        div
+    </div>
+    <p>p</p>
+    <span>span</span>
+</body>
+</html>

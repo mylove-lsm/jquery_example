@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            margin: 10px;
+            border: 10px solid black;
+            background: blue;
+        }
+    </style>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            // width innerWidth outerWidth
+            // height innerHeight outerHeight
+            
+            var w1 = $('.box').css('width'); //字符串 width 300px
+            var w2 = $('.box').width(); // width 300
+            var w3 = $('.box').innerWidth(); // width + padding 320
+            var w4 = $('.box').outerWidth(); // width + paddgin + border 340
+            var w5 = $('.box').outerWidth(true); // width + paddgin + border + margin 360
+            alert(`${w1}  ${w2}  ${w3}  ${w4}  ${w5}`);
+        })
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

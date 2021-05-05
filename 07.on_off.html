@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+    </style>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('div').on({
+                click: function() {
+                    alert('点击');
+                },
+                mouseover: function(){
+                    $(this).css('background', 'red');
+                },
+                mouseout: function(){
+                    $(this).css('background', 'blue');
+                }
+            });
+            
+            // 事件委托
+            $('ul').on('mouseover', 'li', function(){
+                $(this).css('background', 'red');
+            });
+            $('ul').on('mouseout', 'li', function(){
+                $(this).css('background', 'white');
+            });
+
+            //增加节点
+            var i = 5;
+            $('#btn1').on('click', function(){
+                $(`<li>${i++}</li>`).appendTo($('ul'));
+            });
+
+            // 删除节点
+            $('#btn2').on('click', function(){
+                i--;
+                $('ul li:last').remove();
+            });
+            
+            // 取消事件
+            // $('div').off('click', func); 取消点击事件的func函数
+            // $('div').off('click'); 取消点击事件所有函数
+            // $('div').off(); 取消所有事件的所有函数
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <button id="btn1">增加节点</button>
+    <button id="btn2">删除节点</button>
+</body>
+</html>
