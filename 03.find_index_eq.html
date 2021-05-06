@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,7 @@
     <title>Document</title>
     <script src="./jquery-3.6.0.min.js"></script>
     <script>
-        $(function(){
+        $(function () {
             $('#news').find("[name=xxx]").css({
                 'background': 'blue',
                 'text-align': 'center'
@@ -16,7 +17,7 @@
                 'background': 'orange',
                 'text-align': 'center'
             });
-            alert($('#news li[class=box]').index());//输出该节点在兄弟节点的下标
+            alert($('#news li[class=box]').index()); //输出该节点在兄弟节点的下标
             // $('#news').find("[name=xxx]").attr('name', 'yyy');
             $('#news').find("[name=xxx]").attr({
                 name: 'yyy',
@@ -26,6 +27,7 @@
         })
     </script>
 </head>
+
 <body>
     <ul id="news">
         <li class="box"></li>
@@ -38,4 +40,5 @@
         </li>
     </ul>
 </body>
+
 </html>

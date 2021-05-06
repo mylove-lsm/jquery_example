@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div{
+        div {
             width: 100px;
             height: 100px;
             background: yellow;
@@ -14,56 +15,57 @@
     </style>
     <script src="./jquery-3.6.0.min.js"></script>
     <script>
-        $(function(){
+        $(function () {
             $('div').on({
-                click: function() {
+                click: function () {
                     alert('点击');
                 },
-                mouseover: function(){
+                mouseover: function () {
                     $(this).css('background', 'red');
                 },
-                mouseout: function(){
+                mouseout: function () {
                     $(this).css('background', 'blue');
                 }
             });
-            
+
             // 事件委托
-            $('ul').on('mouseover', 'li', function(){
+            $('ul').on('mouseover', 'li', function () {
                 $(this).css('background', 'red');
             });
-            $('ul').on('mouseout', 'li', function(){
+            $('ul').on('mouseout', 'li', function () {
                 $(this).css('background', 'white');
             });
 
             //增加节点
             var i = 5;
-            $('#btn1').on('click', function(){
+            $('#btn1').on('click', function () {
                 $(`<li>${i++}</li>`).appendTo($('ul'));
             });
 
             // 删除节点
-            $('#btn2').on('click', function(){
+            $('#btn2').on('click', function () {
                 i--;
                 $('ul li:last').remove();
             });
-            
+
             // 取消事件
             // $('div').off('click', func); 取消点击事件的func函数
             // $('div').off('click'); 取消点击事件所有函数
             // $('div').off(); 取消所有事件的所有函数
 
-            $('ul li:first').click(function(){
+            $('ul li:first').click(function () {
                 alert(this.innerText);
             })
 
             // jQuery的所有方法和变量都是经过兼容的
-            $('a').click(function(ev) {
+            $('a').click(function (ev) {
                 ev.stopPropagation(); // 阻止事件冒泡，即a标签不会触发li的事件
                 ev.preventDefault(); // 阻止默认行为
             })
         })
     </script>
 </head>
+
 <body>
     <div></div>
     <ul>
@@ -78,4 +80,5 @@
     <button id="btn1">增加节点</button>
     <button id="btn2">删除节点</button>
 </body>
+
 </html>
