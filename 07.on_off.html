@@ -51,13 +51,26 @@
             // $('div').off('click', func); 取消点击事件的func函数
             // $('div').off('click'); 取消点击事件所有函数
             // $('div').off(); 取消所有事件的所有函数
+
+            $('ul li:first').click(function(){
+                alert(this.innerText);
+            })
+
+            // jQuery的所有方法和变量都是经过兼容的
+            $('a').click(function(ev) {
+                ev.stopPropagation(); // 阻止事件冒泡，即a标签不会触发li的事件
+                ev.preventDefault(); // 阻止默认行为
+            })
         })
     </script>
 </head>
 <body>
     <div></div>
     <ul>
-        <li>1</li>
+        <li>
+            1
+            <a href="https://www.baidu.com">百度</a>
+        </li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
