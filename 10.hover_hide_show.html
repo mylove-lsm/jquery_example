@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+
+        #box1 {
+            background: red;
+        }
+
+        #box2 {
+            background: blue;
+        }
+    </style>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            // hover(funcOver, funcOut); 移入，移出函数
+            // hide(time, func); 动画持续time毫秒，动画结束后执行func回调函数
+            // show(time, func); 同hide
+
+            // 参数相同，动画效果如下
+            // hide show: 左上角放缩
+            // slideDown slideUp: 开放闸, 即水平收起放下
+            // fadeIn fadeOut: 淡入淡出
+            // fadeTo(time, opacity(0-1), func); opacity表示透明度
+
+            $('#box1').hover(function(){
+                $('#box2').hide(2000, function(){
+                    $('#box1').html('移入');
+                })
+            }, function(){
+                $('#box2').show(2000, function(){
+                    $('#box1').html('移出');
+                })
+            })
+
+            // each循环index为下标，item为节点
+            $('input').each(function(index, item){
+                item.value = index; // item为原生js节点
+                // $(item).val(index); 将item转为jQuery节点
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <input type="text" value="a"><input type="text" value="b"><input type="text" value="c">
+</body>
+
+</html>
