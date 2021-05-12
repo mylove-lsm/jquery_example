@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('div').click(function(){
+                // 参数：对象， 持续时间， linear或默认swing(慢快慢), 回调函数
+                $('div').animate({
+                    width: 300,
+                    height: 300
+                }, 2000, 'linear', function(){
+                    this.innerHTML = 'a';
+                })
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
