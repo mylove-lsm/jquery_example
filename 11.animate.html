@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,23 +12,60 @@
             height: 100px;
             background: red;
         }
+
+        #box2 {
+            background: blue;
+            margin-top: 50px;
+        }
+
+        button {
+            position: absolute;
+            top: 600px;
+        }
     </style>
     <script src="./jquery-3.6.0.min.js"></script>
     <script>
-        $(function(){
-            $('div').click(function(){
+        $(function () {
+            let i = 0;
+            $('#box1').hover(function () {
                 // 参数：对象， 持续时间， linear或默认swing(慢快慢), 回调函数
-                $('div').animate({
+                // 当多次移入移出时，会重复执行多次动画
+                // 执行动画前可停止所有动画即可
+                $(this).stop(true).animate({
                     width: 300,
                     height: 300
-                }, 2000, 'linear', function(){
-                    this.innerHTML = 'a';
+                }, 1000, 'linear', function () {
+                    this.innerHTML = i++;
+                })
+            }, function(){
+                $(this).stop(true).animate({
+                    width: 100,
+                    height: 100
+                }, 1000, 'linear', function () {
+                    this.innerHTML = i++;
                 })
             });
+            $('#box2').click(function () {
+                $('#box2').animate({
+                    width: 200
+                }, 2000).animate({
+                    height: 200
+                }, 2000);
+            });
+            $('button').click(function () {
+                // $('#box2').stop(); 停止第一个动画，后续动画正常运行
+                // $('#box2').stop(true); 停止所有动画
+                // $('#box2').stop(true, true); 停止所有动画，且完成正在执行的动画
+                $('#box2').finish(); // 直接完成所有动画
+            })
         })
     </script>
 </head>
+
 <body>
-    <div id="box"></div>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <button>暂停</button>
 </body>
+
 </html>
