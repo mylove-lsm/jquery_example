@@ -38,11 +38,11 @@
 
             // 参数都是选择器
             // node.siblings('h1'): node的所有是h1的兄弟节点
-            // node.nextAll(): node后面的所有兄弟节点
-            // node.prevAll(): node前面的所有兄弟节点
-            // node.nextUtil('h1'): node -- 后面最近h1之间的所有兄弟节点
-            // node.prevUtil('h1'): 前面最近h1 -- node之间的兄弟所有节点
-            // node.parentsUtil('body'): body -- node之间所有祖先节点
+            // node.nextAll(selector): node后面的所有兄弟节点
+            // node.prevAll(selector): node前面的所有兄弟节点
+            // node.nextUtil('h1', selector): node -- 后面最近h1之间的所有兄弟节点
+            // node.prevUtil('h1', selector): 前面最近h1 -- node之间的兄弟所有节点
+            // node.parentsUtil('body', selector): body -- node之间所有祖先节点
 
             // $('p').siblings().css('color', 'pink');
             // $('p').nextAll('h3').css('color', 'pink');
