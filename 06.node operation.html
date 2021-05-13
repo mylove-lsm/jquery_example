@@ -23,19 +23,54 @@
             // 将p插入到div子节点的首位
             $('p').prependTo($('div')); // $('div').prepend($('p'));
 
-            // 删除em节点
-            $('em').remove();
+            // 删除em节点，返回值就是被删除的节点
+            // remove()不会保留元素节点的事件
+            // detach()会保留元素节点的事件
+
+            $('em').hover(function () {
+                $(this).css('color', 'red');
+            }, function () {
+                $(this).css('color', 'blue');
+            })
+            // var node = $('em').remove();
+            var node = $('em').detach();
+            node.appendTo($('div'));
+
+            // 参数都是选择器
+            // node.siblings('h1'): node的所有是h1的兄弟节点
+            // node.nextAll(): node后面的所有兄弟节点
+            // node.prevAll(): node前面的所有兄弟节点
+            // node.nextUtil('h1'): node -- 后面最近h1之间的所有兄弟节点
+            // node.prevUtil('h1'): 前面最近h1 -- node之间的兄弟所有节点
+            // node.parentsUtil('body'): body -- node之间所有祖先节点
+
+            // $('p').siblings().css('color', 'pink');
+            // $('p').nextAll('h3').css('color', 'pink');
+            // $('em').prevAll().css('color', 'pink');
+            // $('p').nextUntil('h4').css('color', 'pink');
+            // $('em').prevUntil('h2').css('color', 'pink');
+            $('em').parentsUntil('body').css('color', 'pink');
+            $('em').parents('section').css('background', 'black');
+            $('em').parent().css('background', 'white');
         })
     </script>
 </head>
 
 <body>
-    <div>
-        <em>em</em>
-        div
-    </div>
-    <p>p</p>
-    <span>span</span>
+    <section>
+        <h2>aaa</h2>
+        <h4>h4</h4>
+        section
+        <div>
+            <em>em</em>
+            div
+            <h3>h3</h3>
+        </div>
+        <p>p</p>
+        <span>span</span>
+        <h3>aaa</h3>
+        <h4>h4</h4>
+    </section>
 </body>
 
 </html>
