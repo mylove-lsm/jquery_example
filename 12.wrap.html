@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            // 给每个节点单独添加父元素 包装盒
+            $('span').wrap("<p class = 'wrap'></p>");
+
+            // 把所有节点添加到一个父元素下 包装盒
+            // $('span').wrapAll("<p class = 'wrap'></p>");
+
+            // 给每个节点添加一个子节点，且b会将span的所有内容包含在内
+            $('span').wrapInner("<b>b</b>");
+
+            // 删除每个节点的最近父节点(包装盒)
+            $('em').unwrap();
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <span>
+            span
+            <p>p</p>
+        </span>
+        <em>em</em>
+    </div>
+    <span>span</span>
+    <span>span</span>
+</body>
+
+</html>

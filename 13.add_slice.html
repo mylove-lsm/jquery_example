@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            // add添加选择器
+            // 等同于$('p, ul li')
+            $('p').add('ul li')
+            .css('color', 'pink')
+            .hover(function(){
+                this.style.background = 'black';
+            }, function(){
+                this.style.background = 'white';
+            })
+
+            // slice选取指定范围的元素[start, end)
+            $('ul li').slice(0, 2).html($('ul li').html() + ' li');
+        })
+    </script>
+</head>
+<body>
+    <p>pppppp</p>
+    <ul>
+        <li>li</li>
+        <li>li</li>
+        <li>li</li>
+    </ul>
+</body>
+</html>
