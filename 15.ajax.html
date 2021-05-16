@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            // 在服务器下运行
+            // $('button').click(function(){
+            //     $.ajax({
+            //         type: 'post',
+            //         url: '1.txt',
+            //         data: {
+
+            //         },
+            //         success: function(data, statusText, xhr){
+                        // statusText: 只有success、error两个值
+                        // ajax对象
+            //             console.log(data);
+            //         },
+            //         error: function(msg){
+            //             console.log(msg);
+            //         }
+            //     })
+            // })
+
+            // jsonp跨域
+            $('button').click(function(){
+                // load将url的内容加载到div的innerHTML中
+                $('div').load('1.txt', function(data, statusText, xhr){
+                    // 回调函数
+                });
+                $.ajax({
+                    type: 'post',
+                    url: 'https://api.asilu.com/weather/',
+                    data: {
+                        city: '六盘水'
+                    },
+                    dataType: 'jsonp',
+                    success: function(data){
+                        console.log(data);
+                    },
+                    error: function(msg){
+                        console.log(msg);
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>下载</button>
+</body>
+</html>
